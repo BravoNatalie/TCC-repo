@@ -1,0 +1,9 @@
+exceptFeatures: ['recommendation', 'typicalLearningTime', 'Processing_neutral_0', 'Perception_neutral_2', 'Representation_neutral_4', 'Understanding_neutral_6', 'studentsGroup1', 'studentsGroup2', 'studentsGroup3', 'studentsGroup4']
+target: studentsGroup1
+test_size: 0.3
+criterion: gini
+splitter: best
+max_depth: None
+min_samples_leaf: 1
+------
+accuracy: 0.7790697674418605
