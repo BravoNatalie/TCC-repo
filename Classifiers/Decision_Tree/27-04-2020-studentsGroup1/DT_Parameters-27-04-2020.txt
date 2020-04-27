@@ -3,7 +3,7 @@ target: studentsGroup1
 test_size: 0.3
 criterion: gini
 splitter: best
-max_depth: None
-min_samples_leaf: 1
+max_depth: 9
+min_samples_leaf: 28
 ------
-accuracy: 0.7790697674418605
+accuracy: 0.813953488372093
