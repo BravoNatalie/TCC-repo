@@ -1,0 +1,9 @@
+exceptFeatures: ['recommendation', 'Processing_neutral_0', 'Perception_neutral_2', 'Representation_neutral_4', 'Understanding_neutral_6', 'InteractivityType.ACTIVE', 'InteractivityType.EXPOSITIVE', 'InteractivityType.MIXED', 'LearningResourceType.EXERCISE', 'LearningResourceType.SIMULATION', 'LearningResourceType.QUESTIONNAIRE', 'LearningResourceType.DIAGRAM', 'LearningResourceType.FIGURE', 'LearningResourceType.GRAPH', 'LearningResourceType.INDEX', 'LearningResourceType.SLIDE', 'LearningResourceType.TABLE', 'LearningResourceType.NARRATIVE_TEXT', 'LearningResourceType.EXAM', 'LearningResourceType.EXPERIMENT', 'LearningResourceType.PROBLEM_STATEMENT', 'LearningResourceType.SELF_ASSESSMENT', 'LearningResourceType.LECTURE', 'InteractivityLevel.VERY_LOW', 'InteractivityLevel.LOW', 'InteractivityLevel.MEDIUM', 'InteractivityLevel.HIGH', 'InteractivityLevel.VERY_HIGH']
+target: recommendation
+test_size: 0.3
+criterion: gini
+splitter: best
+max_depth: None
+min_samples_leaf: 28
+------
+accuracy: 0.873838630806846
