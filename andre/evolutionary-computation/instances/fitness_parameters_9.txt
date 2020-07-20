@@ -1,0 +1,7 @@
+[section]
+acs.fitness.missingConceptsCoeficient = 4        ; (2 * 2)
+acs.fitness.conceptsCoveredWeight = 0.5          ; (1 / 2)
+acs.fitness.difficultyWeight = 0.650590          ; (1 / 1.537064)
+acs.fitness.totalTimeWeight = 0.0000128721       ; (1 / (600 * 129.4784))
+acs.fitness.materialsBalancingWeight = 0.0181725 ; (1 / 55.028)
+acs.fitness.learningStyleWeight = 0.515664       ; (1 / 1.939247)

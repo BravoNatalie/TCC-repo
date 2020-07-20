@@ -1,0 +1,10 @@
+[section]
+acs.path = .
+acs.path.learningMaterialsLOM = 100/LOM
+
+acs.file.concepts = conceitos.csv
+acs.file.materialsCoverage = 100/materiais_conceitos.csv
+acs.file.learners = learner.csv
+acs.file.learnersScore = learners_score.csv
+acs.file.fitnessParameters = 100/fitness_parameters.txt
+# acs.file.prerequisites =

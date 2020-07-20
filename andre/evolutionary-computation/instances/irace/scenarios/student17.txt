@@ -1,0 +1,10 @@
+[section]
+acs.path = ../../real
+acs.path.learningMaterialsLOM = LOM
+
+acs.file.concepts = concepts.csv
+acs.file.materialsCoverage = material_coverage.csv
+acs.file.learners = ../irace/learners/learners17.csv
+acs.file.learnersScore = learners_score_test.csv
+acs.file.fitnessParameters = parameters_test.txt
+# acs.file.prerequisites =
