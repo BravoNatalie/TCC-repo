@@ -4,7 +4,7 @@ from acs.instance import Instance
 
 class FitnessValues:
   default_instance = Instance.load_from_file(
-      '/home/bravo/Documentos/TCC/andre/evolutionary-computation/instances/real/instance.txt')
+      '/home/bravo/Documents/TCC/TCC-repo/andre/evolutionary-computation/instances/real/instance.txt')
 
   def __init__(self, fitness_list):
     self.concepts_covered = fitness_list[0]

@@ -5,11 +5,11 @@ import numpy as np
 # from fitness import FitnessValues
 
 
-instance_file = '/home/bravo/Documentos/TCC/andre/evolutionary-computation/instances/real/instance.txt'
+instance_file = '/home/bravo/Documents/TCC/TCC-repo/andre/evolutionary-computation/instances/real/instance.txt'
 
-studentsXselectedMaterials_file = '/home/bravo/Documentos/TCC/andre/evolutionary-computation/studentXselectedMaterials-02-06-2020.csv'
+studentsXselectedMaterials_file = '/home/bravo/Documents/TCC/TCC-repo/andre/evolutionary-computation/studentXselectedMaterials-02-06-2020.csv'
 
-studentsXfitness_file = '/home/bravo/Documentos/TCC/andre/evolutionary-computation/student_fitnessFunction-02-06-2020.csv'
+studentsXfitness_file = '/home/bravo/Documents/TCC/TCC-repo/andre/evolutionary-computation/student_fitnessFunction-02-06-2020.csv'
 
 """ --------------------------------------------------- """
 
@@ -20,25 +20,21 @@ initialSolution = Solution(instance_file, studentsXselectedMaterials_file, stude
 
 improvedSolution = []
 
-student = initialSolution.students_list[14]
+# student = initialSolution.students_list[14]
 
 for student in initialSolution.students_list:
     if(student.fitnessConcepts != 0.0):
         problem = DiscreteOpt(student)
         materials_concepts, fitness = grasp(problem, max_Iterations=10, alfa=0.8, seed=0)
-
         print(f'------ Aluno: {student.student_id}')
         if(np.array_equal(student.materials_concepts, materials_concepts)):
             print('same initial solution')
         else:
             print('different solution found!')
-
         materials_per_concepts_before = student.materials_concepts.sum(axis=0)
         materials_per_concepts_now = materials_concepts.sum(axis=0)
-
         diff = materials_per_concepts_before - materials_per_concepts_now
         changed_concepts_index = np.where(diff != 0)[0]
-
         for i in changed_concepts_index:
             mat = diff[i]
             print(f'Conceito: {i}')
@@ -46,14 +42,11 @@ for student in initialSolution.students_list:
                 print(f'\tmateriais removidos: {mat}')
             else:
                 print(f'\tmateriais adicionados: {mat}')
-
         # print(f'BEFORE -> materials per concepts: {materials_per_concepts_before}')
         # print(f'   NOW -> materials per concepts: {materials_per_concepts_now}')
         print(f'BEFORE -> fitness: {student.fitnessConcepts}')
         print(f'   NOW -> fitness: {fitness}')
-
-
     else:
         materials_concepts = student.materials_concepts
-
-    improvedSolution.append(materials_concepts)
+    
+improvedSolution.append(materials_concepts)
