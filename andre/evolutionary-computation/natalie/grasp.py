@@ -5,11 +5,12 @@ from problemDefinition import DiscreteOpt
 def grasp(problem, max_Iterations, alfa, seed):
   bestSolution = problem.representation
   bestFitness = problem.fitness
-
-  for k in range(max_Iterations):
+  iters = 0
+  while bestFitness > 0.0 and iters < int( max_Iterations / 2 ):
+    iters += 1
     solution, solution_fitness = greadyRandomizedConstruction(problem, alfa, seed)
     newProblem = DiscreteOpt(solution)
-    newSolution, newSolution_fitness = hill_climb(newProblem, max_Iterations)
+    newSolution, newSolution_fitness = hill_climb(newProblem, int( max_Iterations / 2 ))
     """ Update best solution: """
     availableSolutions = {bestFitness: bestSolution,
                           solution_fitness: solution,
@@ -17,6 +18,9 @@ def grasp(problem, max_Iterations, alfa, seed):
 
     bestFitness = min(availableSolutions)
     bestSolution = availableSolutions[bestFitness]
+
+  with open('iteration_log.txt', 'a') as f:
+    print(f'GRASP - Iterações: {iters}', file=f)
 
   return bestSolution, bestFitness
 
@@ -57,7 +61,7 @@ def hill_climb(problem, max_iterations):
   best_fitness = problem.fitness
   iters = 0
 
-  while iters < max_iterations:
+  while best_fitness > 0.0 and iters < max_iterations:
     iters += 1
     problem.find_neigthbors()
     next_solution = problem.minCost_neighbor()
@@ -69,5 +73,8 @@ def hill_climb(problem, max_iterations):
         best_fitness = next_fitness
     
     problem = DiscreteOpt(next_solution)
+
+  with open('iteration_log.txt', 'a') as f:
+    print(f'hillClimb - Iterações: {iters}', file=f)
 
   return best_solution, best_fitness

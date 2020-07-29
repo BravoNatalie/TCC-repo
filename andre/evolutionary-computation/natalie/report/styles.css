@@ -1,0 +1,83 @@
+@page {
+    size: A4; /* Change from the default size of A4 */
+    margin: 2cm 0cm; /* Set margin on each page */
+    counter-increment: page;
+    @bottom-center {
+        content: counter(page);
+        white-space: pre;
+        color: grey;
+    }
+}
+
+html, body {
+    font-family: "Arial Narrow", Arial, sans-serif;
+    color: rgb(20, 20, 20);
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 26;
+    color: whitesmoke;
+    background-color: #1a2a4e;
+    padding: 40px;
+    margin-bottom: 30px;
+    margin-top: -2cm;
+}
+
+h2, hr{
+    font-size: 18;
+    text-align: center;
+    margin: 18px 0px;
+    padding: 5px;
+    background-color: rgb(226, 226, 226);
+    border: 0px;
+}
+
+h3 {
+    font-size: 15;
+}
+
+p {
+    font-size: 12;
+    text-align: justify;
+    line-height: 0.5;
+}
+
+.container p, dl, h3 {
+    margin: 15px 90px;
+}
+
+table {
+    margin-left: 210px;
+    border-collapse: collapse;
+    margin-bottom: 35px;
+}
+
+tr, td, th{
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    text-align: right;
+    width: 200px;
+    color: rgb(32, 32, 32);
+}
+
+tr:nth-child(4) {
+    border-top: 5px solid #ddd;
+}
+
+.field {
+    text-align: right;
+    font-style: italic ;
+    padding-right: 0px;
+    color: rgb(83, 83, 83);
+}
+
+td {
+    text-align: left;
+    padding: 0px 10px;
+}

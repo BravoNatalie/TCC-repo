@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>GRASP Report</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <h1>Changes on material covered concepts <br> for each student</h1>
+
+    <section class="container" >
+        <p><strong>Total students:</strong> {{ total_students }}</p>
+        <p><strong>Students with modified materials:</strong> {{ number_of_modified_students }}</p>
+    </section>
+
+    <h2>Students with modified materials</h2>
+
+    <section class="container">
+        {% for student in students %}
+
+            <h3>Student: {{ student["student_id"] }}</h3>
+            
+            <table>
+                <tr>
+                    <th><strong>Fitness before:</strong></th>
+                    <td>{{ student["fitness_before"] }} </td>
+                </tr>
+                <tr>
+                    <th><strong>Fitness now:</strong></th>
+                    <td>{{ student["fitness_now"] }}</td>
+                </tr>
+                <tr>
+                    <th><strong>Modified materials:</strong></th>
+                    <td>{{ student["modified_materials"] }}</td>
+                </tr>
+
+                {% for material in student["materials"] %}
+                    <tr class="material">
+                        <th><strong>Material ID: </strong></th>
+                        <td>{{ material["material_id"] }}</td>
+                    </tr>
+                    <tr>
+                        <th class="field"><strong>Added concepts: </strong></th>
+                        <td>{{ material["added_concepts"] }}</td>
+                    </tr>
+                    <tr>
+                        <th class="field"><strong>Removed concepts:</strong></th>
+                        <td>{{ material["removed_concepts"] }}</td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+
+            <hr>
+
+        {% endfor %}
+    </section>
+
+</body>
+</html>

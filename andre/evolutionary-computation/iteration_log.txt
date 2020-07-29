@@ -1,0 +1,258 @@
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
+hillClimb - Iterações: 4
+GRASP - Iterações: 1
+------ Aluno: 1
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 5
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 12
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 14
+hillClimb - Iterações: 2
+GRASP - Iterações: 1
+------ Aluno: 23
