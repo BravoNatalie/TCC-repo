@@ -27,6 +27,13 @@ h1 {
     margin-top: -2cm;
 }
 
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 h2, hr{
     font-size: 18;
     text-align: center;

@@ -11,7 +11,7 @@ def createReport(filename, template_vars):
 
 
 if __name__ == "__main__":
-    template_vars = {"total_students": 1, "students": [{"student_id": 1, "fitness_before": 5, "fitness_now": 0, "modified_materials": 2, "materials": [{"material_id": 11, "removed_concepts": ['Logica'], "added_concepts": ['Calculo', 'Prog']}]}], "number_of_modified_students": 1}
+    template_vars = {"chart1": './natalie/images/Removed_Materials&Added_Materials.png', "total_students": 1, "students": [{"student_id": 1, "fitness_before": 5, "fitness_now": 0, "modified_materials": 2, "materials": [{"material_id": 11, "removed_concepts": ['Logica'], "added_concepts": ['Calculo', 'Prog']}]}], "number_of_modified_students": 1}
     filename = "grasp_report"
 
     createReport(filename, template_vars)

@@ -3,6 +3,37 @@ from problemDefinition import DiscreteOpt
 from grasp import grasp
 import numpy as np
 from report.report import createReport
+from collections import defaultdict
+import matplotlib.pyplot as plt
+
+
+new_repository = dict()
+
+all_new_material = {
+    "total": 284,
+    "materials": []
+}
+
+
+def add_to_allNewMaterial(covered_concepts, parent_material_id):
+    for mat in all_new_material["materials"]:
+        if np.array_equal(covered_concepts, mat[1]):
+            return mat
+    
+    id = all_new_material["total"] + 1
+    material = (id, covered_concepts, parent_material_id)
+    all_new_material["materials"].append(material)
+    all_new_material["total"] += 1
+
+    return material
+
+
+
+def add_count_to_dict(dic, all_occurrences):
+    for element in all_occurrences:
+        dic[element] = dic[element] + 1 if element in dic else 1
+    return dic
+
 
 
 instance_file = '/home/bravo/Documents/TCC/TCC-repo/andre/evolutionary-computation/instances/real/instance.txt'
@@ -22,7 +53,12 @@ improvedSolution = []
 
 # student = initialSolution.students_list[14]
 
-students_list_report = list()
+students_list_report = list()  # lista de alunos no formato exigido para imprimir o relatório
+
+total_removed_materials = dict()  # key: material removido, value: quantidades de vezes 
+total_added_materials = dict()  # key: material removido, value: quantidades de vezes  key: material adicionado, value: quantidades de vezes 
+removed_materials_concepts = defaultdict(set)  # key: material removido, value: todos conceitos retirados
+added_materials_concepts = defaultdict(set)  # key: material adicionado, value: todos conceitos adicionados 
 
 for student in initialSolution.students_list:
     if(student.fitnessConcepts != 0.0):
@@ -61,6 +97,32 @@ for student in initialSolution.students_list:
                             
                 modified_materials.append(changed_material)
 
+                """ start: chart report """
+                
+
+                if material_id in total_removed_materials:
+                    total_removed_materials[material_id] += 1
+                else:
+                    total_removed_materials[material_id] = 1
+
+                
+                if new_material.sum() > 0:
+                    new_learning_material = add_to_allNewMaterial(new_material, material_id)
+
+                    if new_learning_material[0] in total_added_materials:
+                        total_added_materials[new_learning_material[0]] += 1
+                    else:
+                        total_added_materials[new_learning_material[0]] = 1
+
+
+                for concept in removed_concepts:
+                    removed_materials_concepts[material_id].add(concept)
+                
+                for concept in added_concepts:
+                    removed_materials_concepts[material_id].add(concept)
+                
+                """end:  chart report """
+
         student = {"student_id": student.student_id,
                    "fitness_before": student.fitnessConcepts,
                    "fitness_now": fitness,
@@ -73,11 +135,64 @@ for student in initialSolution.students_list:
     else:
         materials_concepts = student.materials_concepts
 
+        """ start: counting frequency of use """
+        for index, mat in enumerate(materials_concepts):
+            if mat.sum() > 0:
+                if index in new_repository:
+                    new_repository[index] += 1
+                else:
+                    new_repository[index] = 1
+        """ end: counting frequency of use """
+
+
 improvedSolution.append(materials_concepts)
+
+
+
+y = list(total_removed_materials.keys())
+x = list(total_removed_materials.values())
+
+y1 = list(total_added_materials.keys())
+x1 = list(total_added_materials.values())
+
+filename = "Removed_Materials&Added_Materials.png"
+
+fig, (ax1, ax2) = plt.subplots(1, 2)
+
+ax1.barh(np.arange(len(y)), x, 0.6)
+ax1.set_xticks(np.arange(min(x), max(x) + 1, 1))
+ax1.set_yticks(np.arange(len(y)))
+ax1.set_yticklabels(y)
+ax1.set_ylabel('Removed Materials')
+ax1.set_xlabel('Number of students')
+
+ax2.barh(np.arange(len(y1)), x1, 0.6)
+ax2.set_xticks(np.arange(min(x1), max(x1) + 1, 1))
+ax2.set_yticks(np.arange(len(y1)))
+ax2.set_yticklabels(y1)
+ax2.set_ylabel('Added Materials')
+ax2.set_xlabel('Number of students')
+fig.tight_layout(pad=2.0)
+plt.savefig('./natalie/images/' + filename)
+
+
+
+new_repository.update(total_added_materials)
+# print(new_repository)
+y2 = list(new_repository.keys())
+x2 = list(new_repository.values())
+fig, ax = plt.subplots()
+ax.barh(np.arange(len(y2)), x2, 0.0001)
+ax.set_xticks(np.arange(min(x2), max(x2) + 1, 1))
+ax.set_yticks(np.arange(len(y2)))
+ax.set_yticklabels(y2)
+plt.ylabel('Novo repositório')
+plt.xlabel('Quantidade de alunos')
+plt.savefig('./natalie/images/repositórioXquantidadeAlunos.png')
 
 # create report
 
-template_vars = {"total_students": 24, "students": students_list_report, "number_of_modified_students": len(students_list_report)}
+template_vars = {"total_students": 24, "students": students_list_report, "number_of_modified_students": len(students_list_report), "chart1": './natalie/images/' + filename }
 filename = "grasp_report"
 
 createReport(filename, template_vars)
