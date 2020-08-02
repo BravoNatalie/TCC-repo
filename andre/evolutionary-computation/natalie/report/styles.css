@@ -1,6 +1,6 @@
 @page {
     size: A4; /* Change from the default size of A4 */
-    margin: 2cm 0cm; /* Set margin on each page */
+    margin: 1.6cm 0cm; /* Set margin on each page */
     counter-increment: page;
     @bottom-center {
         content: counter(page);

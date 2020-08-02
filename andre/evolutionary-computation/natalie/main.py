@@ -29,9 +29,11 @@ def add_to_allNewMaterial(covered_concepts, parent_material_id):
 
 
 
-def add_count_to_dict(dic, all_occurrences):
-    for element in all_occurrences:
-        dic[element] = dic[element] + 1 if element in dic else 1
+def add_count_to_dict(dic, value):
+    if value in dic:
+        dic[value] += 1
+    else:
+        dic[value] = 1
     return dic
 
 
@@ -65,7 +67,7 @@ for student in initialSolution.students_list:
         problem = DiscreteOpt(student)
         materials_concepts, fitness = grasp(problem, max_Iterations=100, alfa=0.8, seed=0)
 
-        with open('iteration_log.txt', 'a') as f:
+        with open('./natalie/iteration_log.txt', 'a') as f:
             print(f'------ Aluno: {student.student_id}', file=f)
 
 
@@ -99,20 +101,11 @@ for student in initialSolution.students_list:
 
                 """ start: chart report """
                 
+                total_removed_materials = add_count_to_dict(total_removed_materials, material_id)
 
-                if material_id in total_removed_materials:
-                    total_removed_materials[material_id] += 1
-                else:
-                    total_removed_materials[material_id] = 1
-
-                
                 if new_material.sum() > 0:
                     new_learning_material = add_to_allNewMaterial(new_material, material_id)
-
-                    if new_learning_material[0] in total_added_materials:
-                        total_added_materials[new_learning_material[0]] += 1
-                    else:
-                        total_added_materials[new_learning_material[0]] = 1
+                    total_added_materials = add_count_to_dict(total_added_materials, new_learning_material[0])
 
 
                 for concept in removed_concepts:
@@ -138,10 +131,8 @@ for student in initialSolution.students_list:
         """ start: counting frequency of use """
         for index, mat in enumerate(materials_concepts):
             if mat.sum() > 0:
-                if index in new_repository:
-                    new_repository[index] += 1
-                else:
-                    new_repository[index] = 1
+                new_repository = add_count_to_dict(new_repository, index)
+                
         """ end: counting frequency of use """
 
 
@@ -160,19 +151,19 @@ filename = "Removed_Materials&Added_Materials.png"
 fig, (ax1, ax2) = plt.subplots(1, 2)
 
 ax1.barh(np.arange(len(y)), x, 0.6)
-ax1.set_xticks(np.arange(min(x), max(x) + 1, 1))
+ax1.set_xticks(np.arange(min(x), 2 * max(x) + 1, 1))
 ax1.set_yticks(np.arange(len(y)))
 ax1.set_yticklabels(y)
 ax1.set_ylabel('Removed Materials')
 ax1.set_xlabel('Number of students')
 
-ax2.barh(np.arange(len(y1)), x1, 0.6)
-ax2.set_xticks(np.arange(min(x1), max(x1) + 1, 1))
+ax2.barh(np.arange(len(y1)), x1, 0.3)
+ax2.set_xticks(np.arange(min(x1), 2 * max(x1) + 1, 1))
 ax2.set_yticks(np.arange(len(y1)))
 ax2.set_yticklabels(y1)
 ax2.set_ylabel('Added Materials')
 ax2.set_xlabel('Number of students')
-fig.tight_layout(pad=2.0)
+fig.tight_layout(pad=4.0)
 plt.savefig('./natalie/images/' + filename)
 
 

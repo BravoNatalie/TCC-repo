@@ -14,8 +14,10 @@
         <p><strong>Students with modified materials:</strong> {{ number_of_modified_students }}</p>
     </section>
 
+    <h2>Overview</h2>
+
     <section class="chart">
-        <img src="file:{{ chart1 }}" width="100" height="100">
+        <img src="file:{{ chart1 }}" >
     </section>
 
     <h2>Students with modified materials</h2>
@@ -24,7 +26,7 @@
         {% for student in students %}
 
             <h3>Student: {{ student["student_id"] }}</h3>
-            
+
             <table>
                 <tr>
                     <th><strong>Fitness before:</strong></th>

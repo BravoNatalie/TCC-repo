@@ -19,7 +19,7 @@ def grasp(problem, max_Iterations, alfa, seed):
     bestFitness = min(availableSolutions)
     bestSolution = availableSolutions[bestFitness]
 
-  with open('iteration_log.txt', 'a') as f:
+  with open('./natalie/iteration_log.txt', 'a') as f:
     print(f'GRASP - Iterações: {iters}', file=f)
 
   return bestSolution, bestFitness
@@ -74,7 +74,7 @@ def hill_climb(problem, max_iterations):
     
     problem = DiscreteOpt(next_solution)
 
-  with open('iteration_log.txt', 'a') as f:
+  with open('./natalie/iteration_log.txt', 'a') as f:
     print(f'hillClimb - Iterações: {iters}', file=f)
 
   return best_solution, best_fitness
