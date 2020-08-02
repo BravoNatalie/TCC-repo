@@ -7,10 +7,10 @@ from collections import defaultdict
 import matplotlib.pyplot as plt
 
 
-new_repository = dict()
+new_repository = dict(zip(np.arange(0, 284), np.zeros(284, dtype=int)))
 
 all_new_material = {
-    "total": 284,
+    "total": len(new_repository) - 1,
     "materials": []
 }
 
@@ -115,6 +115,10 @@ for student in initialSolution.students_list:
                     removed_materials_concepts[material_id].add(concept)
                 
                 """end:  chart report """
+            # else:
+            #     for index, mat in enumerate(materials_concepts):
+            #         if materials_concepts[mat].sum() > 0:
+            #             new_repository = add_count_to_dict(new_repository, index)
 
         student = {"student_id": student.student_id,
                    "fitness_before": student.fitnessConcepts,
@@ -129,9 +133,9 @@ for student in initialSolution.students_list:
         materials_concepts = student.materials_concepts
 
         """ start: counting frequency of use """
-        for index, mat in enumerate(materials_concepts):
-            if mat.sum() > 0:
-                new_repository = add_count_to_dict(new_repository, index)
+        # for index, mat in enumerate(materials_concepts):
+        #     if materials_concepts[mat].sum() > 0:
+        #         new_repository = add_count_to_dict(new_repository, index)
                 
         """ end: counting frequency of use """
 
@@ -167,19 +171,24 @@ fig.tight_layout(pad=4.0)
 plt.savefig('./natalie/images/' + filename)
 
 
+# for mat in new_repository:
+#     if new_repository[mat] == 0:
+#         print(mat)
 
-new_repository.update(total_added_materials)
+
+# new_repository.update(total_added_materials)
 # print(new_repository)
-y2 = list(new_repository.keys())
-x2 = list(new_repository.values())
-fig, ax = plt.subplots()
-ax.barh(np.arange(len(y2)), x2, 0.0001)
-ax.set_xticks(np.arange(min(x2), max(x2) + 1, 1))
-ax.set_yticks(np.arange(len(y2)))
-ax.set_yticklabels(y2)
-plt.ylabel('Novo repositório')
-plt.xlabel('Quantidade de alunos')
-plt.savefig('./natalie/images/repositórioXquantidadeAlunos.png')
+# print(len(new_repository))
+# y2 = list(new_repository.keys())
+# x2 = list(new_repository.values())
+# fig, ax = plt.subplots()
+# ax.barh(np.arange(len(y2)), x2, 0.0001)
+# ax.set_xticks(np.arange(min(x2), max(x2) + 1, 1))
+# ax.set_yticks(np.arange(len(y2)))
+# ax.set_yticklabels(y2)
+# plt.ylabel('Novo repositório')
+# plt.xlabel('Quantidade de alunos')
+# plt.savefig('./natalie/images/repositórioXquantidadeAlunos.png')
 
 # create report
 
