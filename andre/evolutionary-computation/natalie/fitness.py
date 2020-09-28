@@ -34,9 +34,9 @@ class FitnessValues:
 
   @classmethod
   def materials_balancing_fn(cls, student_id, materials_concepts):
-    objectives = cls.default_instance.objectives[student_id]
+    objectives = cls.default_instance.objectives[student_id].astype(bool)
 
-    amount_of_materials_for_all_concepts = materials_concepts.sum()
+    amount_of_materials_for_all_concepts = materials_concepts.astype(bool).sum()
     mean_concepts_per_objective = amount_of_materials_for_all_concepts / objectives.sum()
 
     amount_of_materials_per_objectives = materials_concepts.sum(axis=0)
