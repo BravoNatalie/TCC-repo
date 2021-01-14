@@ -5,18 +5,27 @@ from solution import Solution
 # from report.report import createReport
 # from collections import defaultdict
 # import matplotlib.pyplot as plt
+import acs.objective as objective
+from acs.instance import Instance
+import numpy as np
 from fitness import FitnessValues
+import os
+
+dir = os.path.dirname(__file__)
 
 
 # new_repository = dict(zip(np.arange(0, 284), np.zeros(284, dtype=int)))
+""" Novo repositório gerado com as modificações """
 
 # all_new_material = {
 #     "total": len(new_repository) - 1,
 #     "materials": []
 # }
+""" materiais novos e o tamanho novo do repositório """
 
 
 # def add_to_allNewMaterial(covered_concepts, parent_material_id):
+""" adiciona um material novo se não existente """
 #     for mat in all_new_material["materials"]:
 #         if np.array_equal(covered_concepts, mat[1]):
 #             return mat
@@ -31,6 +40,7 @@ from fitness import FitnessValues
 
 
 # def add_count_to_dict(dic, value):
+""" dicionário com contagem de value """
 #     if value in dic:
 #         dic[value] += 1
 #     else:
@@ -38,12 +48,14 @@ from fitness import FitnessValues
 #     return dic
 
 
+instance_file = os.path.join(dir,'..','instances','real','instance.txt')
+#instance_file = '/home/bravo/Documents/TCC/TCC-repo/andre/evolutionary-computation///'
 
-instance_file = '/home/bravo/Documents/TCC/TCC-repo/andre/evolutionary-computation/instances/real/instance.txt'
+studentsXselectedMaterials_file = os.path.join(dir,'..', 'studentXselectedMaterials-02-06-2020.csv')
+#studentsXselectedMaterials_file = '/home/bravo/Documents/TCC/TCC-repo/andre/evolutionary-computation/studentXselectedMaterials-02-06-2020.csv'
 
-studentsXselectedMaterials_file = '/home/bravo/Documents/TCC/TCC-repo/andre/evolutionary-computation/studentXselectedMaterials-02-06-2020.csv'
-
-studentsXfitness_file = '/home/bravo/Documents/TCC/TCC-repo/andre/evolutionary-computation/student_fitnessFunction-02-06-2020.csv'
+studentsXfitness_file = os.path.join(dir,'..', 'student_fitnessFunction-02-06-2020.csv')
+#studentsXfitness_file = '/home/bravo/Documents/TCC/TCC-repo/andre/evolutionary-computation/student_fitnessFunction-02-06-2020.csv'
 
 """ --------------------------------------------------- """
 
@@ -53,14 +65,24 @@ studentsXfitness_file = '/home/bravo/Documents/TCC/TCC-repo/andre/evolutionary-c
 initialSolution = Solution(instance_file, studentsXselectedMaterials_file, studentsXfitness_file)
 
 # improvedSolution = []
-
+#print(initialSolution.students_list[5])
 
 student = initialSolution.students_list[5]
-print(FitnessValues.materials_balancing_fn(student.student_id, student.materials_concepts))
+print("Aluno 5 materials_balancing:", FitnessValues.materials_balancing_fn(student.student_id, student.materials_concepts))
+#print(student.materials_concepts)
+individual5 = list()
+for mat in student.materials_concepts:
+    if(mat.sum() == 0):
+        individual5.append(False)
+    else:
+        individual5.append(True)
 
+instance = Instance.load_from_file(instance_file)
 
-student = initialSolution.students_list[23]
-print(FitnessValues.materials_balancing_fn(student.student_id, student.materials_concepts))
+print("Aluno 5 materials_balancing_andre: ",  objective.materials_balancing_function(np.array(individual5), instance, 5))
+
+# student = initialSolution.students_list[23]
+# print("Aluno 23 materials_balancing:" , FitnessValues.materials_balancing_fn(student.student_id, student.materials_concepts))
 
 
 

@@ -2,6 +2,24 @@ from fitness import FitnessValues
 
 
 class Student:
+  """ 
+  Classe para representar o aluno
+
+  Attributes
+  ----------
+  student_id: int
+    id de identificação do aluno
+  materials_concepts: numpy.array int
+    array de duas dimensões materiaisXconceitos, com os valores pertencentes à {0,1}
+  materials: numpy.array boolean
+    array de materiais indicados ao aluno, 1 para recomendado e 0 caso contrário
+  fitnessValues: list float
+    lista contento os valores das funcções de fitness: [concepts_covered, difficulty, total_time, materials_balancing, learning_style, total]
+  fitnessConcepts: float
+    valor associado às funções concepts_covered e materials_balancing
+
+  """
+
   def __init__(self, student_id, materials_concepts, materials):
     self.student_id = student_id
     self.materials_concepts = materials_concepts

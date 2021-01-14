@@ -1,10 +1,15 @@
 import numpy as np
 from acs.instance import Instance
+import acs.objective as objective
+import os
 
+import sys
+np.set_printoptions(threshold=sys.maxsize)
+dir = os.path.dirname(__file__)
 
 class FitnessValues:
-  default_instance = Instance.load_from_file(
-      '/home/bravo/Documents/TCC/TCC-repo/andre/evolutionary-computation/instances/real/instance.txt')
+  file = os.path.join(dir,'..','instances','real','instance.txt')
+  default_instance = Instance.load_from_file(file)
 
   def __init__(self, fitness_list):
     self.concepts_covered = fitness_list[0]
@@ -42,17 +47,34 @@ class FitnessValues:
     amount_of_materials_per_objectives = materials_concepts.sum(axis=0)
     amount_of_materials_per_objectives = amount_of_materials_per_objectives[amount_of_materials_per_objectives != 0]
 
+    # if(student_id == 5):
+    #   print("amount_of_materials_for_all_concepts: ", materials_concepts.astype(bool))
+    #   print("mean_concepts_per_objective: ", mean_concepts_per_objective)
+    #   print("\n")
+
     distance_from_mean = np.abs(amount_of_materials_per_objectives - mean_concepts_per_objective)
 
     return distance_from_mean.sum()
 
+  @staticmethod
+  def get_Instance(materials_concepts):
+    individual = list()
+    for mat in materials_concepts:
+      individual.append(False if mat.sum() == 0 else True)
+    return individual
+
   @classmethod
   def fitness_fn(cls, student_id, materials_concepts):
-    concepts_covered_objective = cls.concepts_covered_fn(
-        student_id, materials_concepts)
-    materials_balancing_objective = cls.materials_balancing_fn(
-        student_id, materials_concepts)
+    # concepts_covered_objective = cls.concepts_covered_fn(
+    #     student_id, materials_concepts)
+    # materials_balancing_objective = cls.materials_balancing_fn(
+    #     student_id, materials_concepts)
 
-    sum_objective = (FitnessValues.default_instance.concepts_covered_weight * concepts_covered_objective + FitnessValues.default_instance.materials_balancing_weight * materials_balancing_objective)
+    individual = FitnessValues.get_Instance(materials_concepts)
+
+    concepts_covered_objective = objective.concepts_covered_function(individual, cls.default_instance, student_id)
+    materials_balancing_objective = objective.materials_balancing_function(individual, cls.default_instance, student_id)
+
+    sum_objective = (cls.default_instance.concepts_covered_weight * concepts_covered_objective + FitnessValues.default_instance.materials_balancing_weight * materials_balancing_objective)
 
     return sum_objective
