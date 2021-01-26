@@ -1,4 +1,5 @@
 {
-    "python.pythonPath": "/home/gitpod/.pyenv/versions/3.7.9/bin/python",
-    "python.autoComplete.extraPaths": ["./andre/evolutionary-computation/natalie"] 
+    "python.autoComplete.extraPaths": [
+        "./andre/evolutionary-computation/natalie"
+    ]
 }
