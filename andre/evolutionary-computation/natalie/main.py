@@ -72,7 +72,7 @@ for student in initialSolution.students_list:
         problem = DiscreteOpt(student)
         materials_concepts, fitness = grasp(problem, max_Iterations=100, alfa=0.8, seed=0)
 
-        with open('./natalie/iteration_log.txt', 'a') as f:
+        with open(os.path.join(dir,'iteration_log.txt'), 'a') as f:
             print(f'------ Aluno: {student.student_id}', file=f)
 
 
@@ -173,7 +173,7 @@ ax2.set_yticklabels(y1)
 ax2.set_ylabel('Added Materials')
 ax2.set_xlabel('Number of students')
 fig.tight_layout(pad=4.0)
-plt.savefig('./natalie/images/' + filename)
+plt.savefig(os.path.join(dir,'imagens',filename))
 
 
 # for mat in new_repository:
@@ -197,7 +197,7 @@ plt.savefig('./natalie/images/' + filename)
 
 # create report
 
-template_vars = {"total_students": 24, "students": students_list_report, "number_of_modified_students": len(students_list_report), "chart1": './natalie/images/' + filename }
+template_vars = {"total_students": 24, "students": students_list_report, "number_of_modified_students": len(students_list_report), "chart1": os.path.join(dir,'imagens',filename) }
 filename = "grasp_report"
 
 createReport(filename, template_vars)

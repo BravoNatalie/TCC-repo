@@ -1,6 +1,8 @@
+import os
 import numpy as np
 from problemDefinition import DiscreteOpt
 
+dir = os.path.dirname(__file__)
 
 def grasp(problem, max_Iterations, alfa, seed):
   bestSolution = problem.representation
@@ -19,7 +21,7 @@ def grasp(problem, max_Iterations, alfa, seed):
     bestFitness = min(availableSolutions)
     bestSolution = availableSolutions[bestFitness]
 
-  with open('./natalie/iteration_log.txt', 'a') as f:
+  with open(os.path.join(dir,'iteration_log.txt'), 'a') as f:
     print(f'GRASP - Iterações: {iters}', file=f)
 
   return bestSolution, bestFitness
@@ -74,7 +76,8 @@ def hill_climb(problem, max_iterations):
     
     problem = DiscreteOpt(next_solution)
 
-  with open('./natalie/iteration_log.txt', 'a') as f:
+
+  with open(os.path.join(dir,'iteration_log.txt'), 'a') as f:
     print(f'hillClimb - Iterações: {iters}', file=f)
 
   return best_solution, best_fitness
