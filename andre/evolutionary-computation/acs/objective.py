@@ -111,10 +111,6 @@ def materials_balancing_function(individual, instance, student):
 
     materials_per_concepts = selected_concepts_materials.sum(axis=1)
 
-    print("selected_concepts_materials: ", selected_concepts_materials)
-    print("mean_concepts_per_objective: ", mean_concepts_per_objective)
-    print("\n")
-
     distance_from_mean = np.abs(materials_per_concepts - mean_concepts_per_objective)
 
     # print(selected_concepts_materials)
