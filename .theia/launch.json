@@ -7,6 +7,7 @@
       "program": "${file}",
       "cwd": "${workspaceRoot}/andre/evolutionary-computation",
       "env": {"PYTHONPATH": "${workspaceRoot}/andre/evolutionary-computation"},
+      "envFile": "${workspaceRoot}/.env",
       "console": "integratedTerminal"
     }
   ]
